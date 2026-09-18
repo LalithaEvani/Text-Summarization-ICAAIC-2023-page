@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Text Summarization of Medical Documents using Abstractive Techniques (ICAAIC 2023) — comparing T5, BART, and PEGASUS on medical document summarization.">
+  <meta name="keywords" content="text summarization, abstractive summarization, NLP, T5, BART, PEGASUS, ROUGE, ICAAIC 2023">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Text Summarization of Medical Documents using Abstractive Techniques</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <!-- Project Styles -->
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+
+<!-- ══════════ HERO ══════════ -->
+<header class="hero">
+  <div class="hero-badge">ICAAIC 2023</div>
+  <h1><span class="highlight">Text Summarization</span> of Medical Documents using Abstractive Techniques</h1>
+  <p class="subtitle">Comparing T5, BART, and PEGASUS for summarizing medical research documents that lack their own abstracts.</p>
+
+  <!-- Authors -->
+  <div class="authors">
+    <span><a href="https://lalithaevani.github.io/" target="_blank">Evani Lalitha</a></span>
+    <span>Esikela Venkata Sai Deepak</span>
+    <span>Kasarapu Ramani</span>
+    <span>M. Hima Bindu</span>
+    <span>Dudekula Shahida</span>
+    <span>Diguri Shaikshavali</span>
+  </div>
+  <div class="affiliation">
+    Department of Information Technology, Sree Vidyanikethan Engineering College, Tirupati, India
+  </div>
+
+  <!-- Buttons -->
+  <div class="btn-row">
+    <a href="https://ieeexplore.ieee.org/abstract/document/10140885/" class="btn btn-primary" target="_blank">
+      <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
+    </a>
+    <a href="https://doi.org/10.1109/ICAAIC56838.2023.10140885" class="btn" target="_blank">
+      <span class="icon"><i class="fas fa-external-link-alt"></i></span><span>DOI</span>
+    </a>
+  </div>
+
+  <!-- TL;DR -->
+  <div class="tldr">
+    <strong>TL;DR</strong> &mdash; A lot of medical research documents don't come with a summary or abstract, making it hard for researchers to quickly judge relevance. We compare five abstractive summarization models &mdash; T5 (small/base/large), BART, and PEGASUS &mdash; on the SUMPUBMED dataset, and find PEGASUS performs best by ROUGE score, with BART close behind.
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-card fade-in">
+      <div class="stat-number">32,689</div>
+      <div class="stat-label">Documents<br>(SUMPUBMED)</div>
+    </div>
+    <div class="stat-card fade-in">
+      <div class="stat-number">5</div>
+      <div class="stat-label">Models<br>compared</div>
+    </div>
+    <div class="stat-card fade-in">
+      <div class="stat-number">0.37</div>
+      <div class="stat-label">Best ROUGE-1<br>Recall (PEGASUS)</div>
+    </div>
+    <div class="stat-card fade-in">
+      <div class="stat-number">0.36</div>
+      <div class="stat-label">Best ROUGE-1<br>F1 (PEGASUS)</div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ══════════ ABSTRACT ══════════ -->
+<section>
+  <div class="container fade-in">
+    <div class="section-label">Abstract</div>
+    <h2>Summarizing What Has No Summary</h2>
+    <p>Medical researchers are exposed to enormous amounts of medical information in the form of medical news, clinical trial reports, research articles, etc. Researchers would need the documents' summaries that help them decide to do an in-depth study. Even though there are documents that contain abstracts, a lot of medical documents do not contain abstracts or summaries. The best solution to address this issue is abstractive text summarization.</p>
+    <p>Extracting useful information and summarizing the information from medical documents inclined to the best interests of the user is a challenge that is addressed in this study. For this, several abstractive summarization techniques such as T5, BART, and PEGASUS are used, and based on ROUGE metrics, PEGASUS is identified to perform better than the other models, achieving the highest ROUGE score of 0.37.</p>
+  </div>
+</section>
+
+
+<!-- ══════════ METHOD ══════════ -->
+<section>
+  <div class="container-wide fade-in">
+    <div class="section-label">Method</div>
+    <h2>Three Abstractive Summarizers, One Dataset</h2>
+    <p>All models are evaluated on documents from the SUMPUBMED dataset (derived from PubMed, 32,689 text documents), and scored with ROUGE-1, ROUGE-2, and ROUGE-L (recall, precision, and F1 for each).</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-tag">Model</div>
+        <h4>T5</h4>
+        <p>Text-to-Text Transfer Transformer; frames every NLP task, including summarization, as text-to-text. Evaluated at small, base, and large sizes.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag">Model</div>
+        <h4>BART</h4>
+        <p>Bidirectional Auto-Regressive Transformer, trained as a denoising autoencoder to reconstruct original text from a corrupted version.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag">Model</div>
+        <h4>PEGASUS</h4>
+        <p>Masks whole sentences (selected deterministically, not randomly) and generates them as the output &mdash; pre-training that mirrors the summarization task itself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ RESULTS ══════════ -->
+<section>
+  <div class="container-wide fade-in">
+    <div class="section-label">Results</div>
+    <h2>ROUGE Evaluation</h2>
+    <p>PEGASUS leads on most ROUGE-1, ROUGE-2, and ROUGE-L recall/F1 metrics; BART is close behind and wins on several precision metrics.</p>
+
+    <div class="figure fig-wide">
+      <img src="static/images/rouge-chart.png" alt="Bar chart of ROUGE-1/2/L recall, precision, and F1 for five models">
+      <div class="figure-caption"><strong>Figure 1.</strong> ROUGE performance metrics across T5 (small/base/large), BART, and PEGASUS.</div>
+    </div>
+
+    <h3>Quantitative Comparison</h3>
+    <p class="table-subtitle">ROUGE-1 scores across models. Bold indicates the best result.</p>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>Model</th><th>ROUGE-1 Recall&uarr;</th><th>ROUGE-1 Precision&uarr;</th><th>ROUGE-1 F1&uarr;</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>T5 small</td><td>0.127</td><td>0.272</td><td>0.173</td></tr>
+          <tr><td>T5 base</td><td>0.208</td><td>0.308</td><td>0.248</td></tr>
+          <tr><td>T5 large</td><td>0.081</td><td>0.255</td><td>0.123</td></tr>
+          <tr><td>BART large CNN</td><td>0.306</td><td class="cell-highlight">0.365</td><td>0.333</td></tr>
+          <tr><td>PEGASUS</td><td class="cell-highlight">0.370</td><td>0.354</td><td class="cell-highlight">0.362</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>PEGASUS achieves the highest ROUGE-1 recall (0.37) and F1 (0.36); BART narrowly leads on precision (0.365). The pattern holds across ROUGE-2 and ROUGE-L: PEGASUS and BART are consistently the strongest of the five, with the three T5 sizes trailing.</p>
+  </div>
+</section>
+
+
+<!-- ══════════ CITATION ══════════ -->
+<section>
+  <div class="container fade-in">
+    <div class="section-label">Citation</div>
+    <h2>BibTeX</h2>
+    <div class="bibtex-block" id="bibtex">
+      <button class="copy-btn" onclick="copyBibtex()">Copy</button>@inproceedings{evani2023textsumm,
+  abbr      = {ICAAIC},
+  title     = {Text Summarization of Medical Documents using Abstractive Techniques},
+  author    = {Evani, Lalitha and Deepak, Esikela Venkata Sai and Ramani, Kasarapu and Bindu, M. Hima and Shahida, Dudekula and Shaikshavali, Diguri},
+  booktitle = {2023 2nd International Conference on Applied Artificial Intelligence and Computing (ICAAIC)},
+  address   = {Salem, India},
+  pages     = {939--943},
+  publisher = {IEEE},
+  year      = {2023},
+  doi       = {10.1109/ICAAIC56838.2023.10140885},
+  url       = {https://ieeexplore.ieee.org/abstract/document/10140885/}
+}</div>
+  </div>
+</section>
+
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="template-credit">
+      <p class="template-line">Want a project page like this?</p>
+      <a href="https://github.com/seemandhar/paper-template" target="_blank" class="template-btn">
+        <i class="fab fa-github"></i><span>Use this template</span>
+        <i class="fas fa-arrow-right" style="font-size:11px;opacity:0.6;"></i>
+      </a>
+      <p class="template-desc">Free, responsive, built for CVPR / ICCV / ECCV / NeurIPS project pages.</p>
+    </div>
+    <div class="footer-divider"></div>
+    <p class="footer-legal">
+      Template by <a href="https://seemandhar.github.io/" target="_blank">Seemandhar Jain</a>.
+      Licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+    </p>
+  </div>
+</footer>
+
+
+<!-- PDF Viewer Modal (kept for template compatibility; unused since Paper links out to IEEE Xplore) -->
+<div class="pdf-overlay" id="pdfOverlay">
+  <div class="pdf-toolbar">
+    <div class="pdf-title" id="pdfTitle">Paper</div>
+    <div class="pdf-toolbar-actions">
+      <a class="pdf-toolbar-btn" id="pdfDownload" href="#" download>
+        <i class="fas fa-download"></i><span class="btn-label">Download</span>
+      </a>
+      <a class="pdf-toolbar-btn" id="pdfNewTab" href="#" target="_blank">
+        <i class="fas fa-external-link-alt"></i><span class="btn-label">Open in Tab</span>
+      </a>
+      <button class="pdf-toolbar-btn close-btn" onclick="closePDF()" aria-label="Close">&times;</button>
+    </div>
+  </div>
+  <iframe class="pdf-viewer-frame" id="pdfFrame" src=""></iframe>
+</div>
+
+<script src="static/js/main.js"></script>
+</body>
+</html>
