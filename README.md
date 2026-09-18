@@ -1,8 +1,8 @@
 # Text Summarization of Medical Documents — Project Page
 
 Project page for the ICAAIC 2023 paper *"Text Summarization of Medical
-Documents using Abstractive Techniques"* (Evani Lalitha, Esikela Venkata Sai
-Deepak, Kasarapu Ramani, M. Hima Bindu, Dudekula Shahida, Diguri
+Documents using Abstractive Techniques"* (Evani Lalitha, Kasarapu Ramani,
+Dudekula Shahida, Esikela Venkata Sai Deepak, M. Hima Bindu, Diguri
 Shaikshavali — Sree Vidyanikethan Engineering College).
 
 - **Live page:** https://LalithaEvani.github.io/Text-Summarization-ICAAIC-2023-page/
